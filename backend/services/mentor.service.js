@@ -1,7 +1,7 @@
 import { client } from '../index.js';
 
 export async function deleteMentorFromDB(id) {
-    return await client.db("mentor-stud").collection("mentors").deleteOne({ id: id });
+    return await client.db("mentor-stud").collection("mentors").deleteOne({ "id": `${id}` });
 }
 export async function postMentorToDB(data) {
     return await client.db("mentor-stud").collection("mentors").insertMany(data);

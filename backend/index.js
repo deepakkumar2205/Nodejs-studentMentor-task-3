@@ -3,9 +3,11 @@ const app = express();
 import * as dotenv from "dotenv";
 import { MongoClient } from 'mongodb';
 import studentRouter from './Routes/students.route.js';
-import mentorRouter from './Routes/mentors.route.js'
-import assignedRouter from './Routes/assigned.route.js'
+import mentorRouter from './Routes/mentors.route.js';
+import assignedRouter from './Routes/assigned.route.js';
+import cors from 'cors';
 dotenv.config();
+app.use(cors());
 
 app.use(express.json());
 const PORT  = process.env.PORT ;
