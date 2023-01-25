@@ -14,14 +14,14 @@ const Assigned = () => {
 
     
     const handleGetMentors = async () =>{
-        await   axios.get("http://localhost:4000/mentors").then((data)=>{
+        await   axios.get("https://nodejs-student-mentor-task-3.vercel.app/mentors").then((data)=>{
                  setMentorList(data.data)
              }).catch((err)=>{
                 console.log(err);
              })
        }
     const handleGetStudents = async () =>{
-        await   axios.get("http://localhost:4000/students").then((data)=>{
+        await   axios.get("https://nodejs-student-mentor-task-3.vercel.app/students").then((data)=>{
                  setStudents(data.data)
              }).catch((err)=>{
                 console.log(err);
@@ -29,10 +29,10 @@ const Assigned = () => {
        }
 
      const handleCreateGroup = async () =>{
-        axios.get("http://localhost:4000/assigned").then((data)=>{
+        axios.get("https://nodejs-student-mentor-task-3.vercel.app/assigned").then((data)=>{
             console.log();
             if(data.data.length == 0){
-                axios.post("http://localhost:4000/assigned",{
+                axios.post("https://nodejs-student-mentor-task-3.vercel.app/assigned",{
                     id:"1",
                     students:studentToShow.map((e)=>e.id),
                     mentor:mentorToShow.id
@@ -40,7 +40,7 @@ const Assigned = () => {
             }else{
                 const id=data.data[data.data.length-1].id;
                 console.log(id);
-                axios.post("http://localhost:4000/assigned",{
+                axios.post("https://nodejs-student-mentor-task-3.vercel.app/assigned",{
                     id:`${id+1}`,
                     students:studentToShow.map((e)=>e.id),
                     mentor:mentorToShow.id
@@ -50,7 +50,7 @@ const Assigned = () => {
      } 
      
      const handleGetAssigned = () =>{
-        axios.get("http://localhost:4000/assigned").then((data)=>{
+        axios.get("https://nodejs-student-mentor-task-3.vercel.app/assigned").then((data)=>{
             setGroups(data.data)
      })
      } 
@@ -61,7 +61,7 @@ const Assigned = () => {
      }
      const handleDeleteGroup = () =>{
              if(idToDel !== undefined){
-                 axios.delete(`http://localhost:4000/assigned/${idToDel}`).then((data)=>{
+                 axios.delete(`https://nodejs-student-mentor-task-3.vercel.app/assigned/${idToDel}`).then((data)=>{
                      console.log(data.data);
                     })
                 }

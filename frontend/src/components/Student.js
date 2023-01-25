@@ -8,7 +8,7 @@ const Student = () => {
 
     const handleSubmit =async ()=>{
         let lastId;
-        await   axios.get("http://localhost:4000/students").then((data)=>{
+        await   axios.get("https://nodejs-student-mentor-task-3.vercel.app/students").then((data)=>{
         const arrayLength=data.data.length;
             if(arrayLength === 0){
                 lastId=1;
@@ -18,7 +18,7 @@ const Student = () => {
          }).catch((err)=>{
             console.log(err);
          })
-        await axios.post("http://localhost:4000/students",
+        await axios.post("https://nodejs-student-mentor-task-3.vercel.app/students",
         [{id: `${+lastId+1}`,
             name:studentState,
             who:"mentor"}]
@@ -30,7 +30,7 @@ const Student = () => {
     }
   
    const handleGetStudent = async () =>{
-    await   axios.get("http://localhost:4000/students").then((data)=>{
+    await   axios.get("https://nodejs-student-mentor-task-3.vercel.app/students").then((data)=>{
              setstudentList(data.data)
          }).catch((err)=>{
             console.log(err);
@@ -38,7 +38,7 @@ const Student = () => {
    }
 
    const handleDelete = async (id)=>{
-    await   axios.delete(`http://localhost:4000/students/${id}`).then((data)=>{
+    await   axios.delete(`https://nodejs-student-mentor-task-3.vercel.app/students/${id}`).then((data)=>{
         handleGetStudent();
         console.log(data);
     }).catch((err)=>{
